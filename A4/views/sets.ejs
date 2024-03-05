@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="pastel" class="bg-gray-200">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <title>Sets - Lego Collection</title> <!-- Updated title -->
+</head>
+<body>
+    <%- include('partials/navbar', {page: `/sets${currentTheme ? ('/' + currentTheme) : ''}`}) %>
+    
+    <div class="container mx-auto flex items-center justify-center flex-col relative top-6">
+        <h1 class="text-4xl font-bold mb-4">Collection</h1>
+        <p>Browse the entire collection</p>
+        <p>Click the theme to filter by themes such as: </p><br>
+        
+        <div> 
+            <% availableThemes.forEach(theme => { %>
+                <a class="btn btn-secondary btn-xs <%= (currentTheme === theme) ? 'cursor-not-allowed opacity-75 pointer-events-none' : '' %>" href="/lego/sets?theme=<%= theme %>"><%= theme %></a>
+            <% }); %>
+        </div>    
+      <div class="hero">
+        <div class="hero-content text-center">
+          <div>
+                <table class="table">
+                  <!-- head -->
+                  <thead>
+                    <tr>
+                      <th>Set Number</th>
+                      <th>Name</th>
+                      <th>Year</th>
+                      <th>Number of Parts</th>
+                      <th>Theme</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- rows -->
+                    <% legoSets.forEach(set => { %>
+                    <tr class="even:bg-transparent odd:bg-zinc-50 rounded-lg">
+                      <td><%= set.set_num %></td>
+                      <td>
+                        <div class="flex items-center gap-3">
+                          <div class="avatar">
+                            <div class="mask mask-squircle w-12 h-12">
+                              <img src="<%= set.img_url %>" alt="Avatar" onerror="this.src='/image/Image_not_available.png'; this.onerror=null;"/>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="font-bold"><%= set.name %></div>
+                            <div class="text-sm opacity-50"><%= set.year %></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td><%= set.year %></td>
+                      <td><%= set.num_parts %></td>
+                      <td>
+                        <a class="btn btn-ghost btn-xs" href="/lego/sets?theme=<%= set.theme %>"><%= set.theme %></a></td>
+                      <td>
+                        <a class="btn btn-ghost btn-xs" href="/lego/sets/<%= set.set_num %>">Details</a></td>
+                      </td>
+                    </tr>
+                    <% }); %>
+                  </tbody>
+                  <!-- foot -->
+                  <tfoot>
+                    <tr>
+                      <th>Set Number</th>
+                      <th>Name</th>
+                      <th>Year</th>
+                      <th>Number of Parts</th>
+                      <th>Theme</th>
+                      <th></th>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+              
+          </div>
+        </div>
+    </div>
+</body>
+</html>

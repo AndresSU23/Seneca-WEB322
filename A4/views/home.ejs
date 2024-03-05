@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="pastel">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <title>Lego Collection</title>
+</head>
+<body class="bg-gray-200">
+    <%- include('partials/navbar', {page: '/home'}) %>
+
+
+    <div class="container mx-auto flex items-center justify-center flex-col relative">
+      <!-- Hero section -->
+      <div class="hero">
+        <div class="hero-content text-center">
+          <div class="max-w-md">
+            <h1 class="text-4xl font-bold mb-4">Explore Our Lego Collection</h1>
+            <a href="/lego/sets" class="btn mt-1 bg-red-500 text-white hover:bg-red-600">Find Out More</a>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Grid system containing card components -->
+      <div class="grid grid-cols-3 grid-rows-1 gap-4 p-5 rounded-lg shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]">
+        <!-- Card 1 -->
+        <div class="card w-96 bg-base-100 shadow-xl">
+          <figure class="p-1"><img class="rounded-lg" src="https://cdn.rebrickable.com/media/sets/0016-1.jpg" alt="Lego Set 1"></figure>
+          <div class="card-body">
+            <h2 class="font-semibold text-lg mt-2">Castle Mini Figures</h2>
+            <p>Classic castle adventures await in LEGO's 1979 Castle Mini Figures set</p>
+            <div class="card-actions justify-end">
+              <a href="/lego/sets/0016-1" class="btn mt-2 bg-red-500 text-white hover:bg-red-600">View Details</a>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Card 2 -->
+        <div class="card w-96 bg-base-100 shadow-xl">
+          <figure class="p-1"><img class="rounded-lg" src="https://cdn.rebrickable.com/media/sets/041-2.jpg" alt="Lego Set 2"></figure>
+          <div class="card-body">
+            <h2 class="font-semibold text-lg mt-2">Play House</h2>
+            <p>Rediscover childhood joy with the 1979 Playhouse LEGO set</p>
+            <div class="card-actions justify-end">
+              <a href="/lego/sets/041-2" class="btn mt-2 bg-red-500 text-white hover:bg-red-600">View Details</a>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Card 3 -->
+        <div class="card w-96 bg-base-100 shadow-xl">
+          <figure class="p-1"><img class="rounded-lg" src="https://cdn.rebrickable.com/media/sets/050-2.jpg" alt="Lego Set 3"></figure>
+          <div class="card-body">
+            <h2 class="font-semibold text-lg mt-2">Lighting Device Pack</h2>
+            <p>Illuminate your creations with the 1969 Lighting Device Pack from LEGO</p>
+            <div class="card-actions justify-end">
+              <a href="/lego/sets/050-2" class="btn mt-2 bg-red-500 text-white hover:bg-red-600">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  
+  
+</body>
+</html>

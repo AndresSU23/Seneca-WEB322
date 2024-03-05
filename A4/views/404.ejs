@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="pastel" class="bg-gray-200">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <title>Page Not Found - Lego Collection</title> <!-- Updated title -->
+</head>
+<body>
+    <%- include('partials/navbar', {page: '/404'}) %>
+
+    <div class="container mx-auto flex items-center justify-center flex-col relative">
+      <!-- Hero section -->
+      <div class="hero">
+        <div class="hero-content text-center">
+          <div class="max-w-md">
+            <h1 class="text-4xl font-bold mb-4">404 - Page Not Found</h1>
+            <p class="text-lg">Oops! <%= message %>.</p> 
+          </div>
+        </div>
+      </div>
+    
+      <img src="/image/404.jpg" alt="404 Error" class="w-25 h-50">
+    </div>
+</body>
+</html>

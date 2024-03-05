@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html class="bg-gray-200" lang="en" data-theme="pastel">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <title>About</title> 
+</head>
+<body>
+    <%- include('partials/navbar', {page: '/about'}) %>
+
+    <div class="container mx-auto flex items-center justify-center flex-col relative w-3/4 pt-5">
+      <div class="hero">
+        <div class="hero-content text-center">
+          <div class="max-w-md">
+            <h1 class="text-4xl font-bold mb-4">About</h1>
+            <p class="text-lg">All about me</p> 
+          </div>
+        </div>
+      </div>
+    
+      <div class="grid grid-cols-2 grid-rows-1 gap-4">
+        <div class="col-start-1 flex flex-col justify-center items-center">
+            <a href="https://youtu.be/iUXAHc-ABoY?si=MShQlLTAsmhJA6xN" target="_blank" rel="noopener noreferrer" class="inline-block transform transition duration-300 ease-in-out hover:scale-110 hover:-translate-x-2 shadow-[0px_10px_1px_rgba(221,_221,_221,_1),_0_10px_20px_rgba(204,_204,_204,_1)]">
+                <img src="/image/beaver.png" alt="Screaming Beaver" class="rounded-lg h-auto">
+            </a>
+        </div>
+        <div class="col-start-2">
+            <h2 class="text-2xl font-bold mb-4">About David Andres Sanchez Umbarila</h2>
+            <p class="text-lg">Hi there! I'm David Andres Sanchez Umbarila, a student studying Computer Programming and Analysis (CPA) from Colombia. I love tinkering with games and robots, always trying to come up with cool new ideas.</p>
+            <p class="text-lg mt-4">Outside of tech stuff, I'm into a bunch of hobbies. I spend a lot of time drawing on my computer, making cool digital art. And I'm a big fan of video games – there's nothing like getting lost in a good game.</p>
+            <p class="text-lg">When I'm not in front of a screen, I like to go swimming or try out new recipes in the kitchen. It's a nice break from all the tech stuff and lets me relax.</p>
+            <p class="text-lg mt-4">Right now, I'm taking some courses to learn even more. Stuff like coding, web design, and a bit of psychology too. It's all part of my journey to keep growing and learning.</p>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="pastel" class="bg-gray-200">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <title>Set <%= legoSet.num_id %> - Lego Collection</title>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch('https://quotable.io/random')
+        .then(response => response.json())
+        .then(data => {
+          const quoteElement = document.getElementById('quote');
+          quoteElement.innerHTML = `<p>${data.content}</p><strong>- ${data.author}</strong><br>`;
+        })
+        .catch(error => {
+          console.error('Error fetching quote:', error);
+        });
+    });
+</script>
+</head>
+<body>
+    <%- include('partials/navbar', {page: '/set/'+ legoSet.num_id}) %>
+
+    <div class="container mx-auto flex items-center justify-center flex-col relative">
+        <div class="hero-content text-center ">
+            <div class="max-w-md">
+              <h1 class="text-5xl font-bold"><%= legoSet.name %></h1>
+    
+              <p class="py-6">Here's a closer look at all the information about the set: </p>
+    
+            </div>
+          </div>
+
+        <div class="w-3/5 grid grid-cols-1 md:grid-cols-2 gap-6 bg-zinc-100 shadow-xl rounded-lg p-5">
+            <img class="w-fit h-auto rounded-lg justify-self-center"src="<%= legoSet.img_url %>" alt="<%= legoSet.name %>" onerror="this.src='/image/Image_not_available.png'; this.onerror=null;"/>
+            <div class="prose">
+                <h1 class="title"><%= legoSet.name %> - <%= legoSet.set_num %></h1>
+                <h3><strong>Year:</strong> <%= legoSet.year %></h3>
+                <h3><strong>Number of Parts:</strong> <%= legoSet.num_parts %></h3>
+                <div class="quote" id="quote">
+                    <!-- Quote will be injected here -->
+                </div>
+                <div class="flex justify-end items-end mt-3">
+                    <a href="#" onclick="history.back(); return false;" class="btn btn-secondary">Back</a>
+                </div>
+              
+            </div>
+          </div>
+    </div>
+
+    
+</body>
+</html>
