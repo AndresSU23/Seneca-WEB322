@@ -7,6 +7,7 @@
 *  https://www.senecacollege.ca/about/policies/academic-integrity-policy.html
 * 
 *  Name: David Andres Sanchez Umbarila Student ID: 140273228 Date: 12/02/2024
+*  Published URL: https://kind-moth-fatigues.cyclic.app/
 *
 ********************************************************************************/
 
