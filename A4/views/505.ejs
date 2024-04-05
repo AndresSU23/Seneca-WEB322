@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="pastel" class="bg-gray-200">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <title>Internal Server Error - Lego Collection</title>
+</head>
+<body>
+    <%- include('partials/navbar', {page: '/500'}) %>
+
+    <div class="container mx-auto flex items-center justify-center flex-col relative">
+      <!-- Hero section -->
+      <div class="hero">
+        <div class="hero-content text-center">
+          <div class="max-w-md">
+            <h1 class="text-4xl font-bold mb-4">505 - Internal Server Error</h1>
+            <p class="text-lg">Oops! Something went wrong on our end. We're working to fix it as soon as possible.</p>
+            <p class="text-lg">Oops! <%= message %>.</p> 
+          </div>
+        </div>
+      </div>
+    
+      <img src="/image/505.jpg" alt="500 Error" class="w-25 h-50">
+    </div>
+</body>
+</html>

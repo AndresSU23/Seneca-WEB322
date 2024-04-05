@@ -5,19 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/main.css">
   <title>Set <%= legoSet.num_id %> - Lego Collection</title>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      fetch('https://quotable.io/random')
-        .then(response => response.json())
-        .then(data => {
-          const quoteElement = document.getElementById('quote');
-          quoteElement.innerHTML = `<p>${data.content}</p><strong>- ${data.author}</strong><br>`;
-        })
-        .catch(error => {
-          console.error('Error fetching quote:', error);
-        });
-    });
-</script>
 </head>
 <body>
     <%- include('partials/navbar', {page: '/set/'+ legoSet.num_id}) %>
@@ -41,13 +28,29 @@
                 <div class="quote" id="quote">
                     <!-- Quote will be injected here -->
                 </div>
-                <div class="flex justify-end items-end mt-3">
-                    <a href="#" onclick="history.back(); return false;" class="btn btn-secondary">Back</a>
-                </div>
+                <div class="flex justify-between items-end mt-3"> <!-- Changed justify-end to justify-between -->
+                  <!-- Link to go back -->
+                  <a href="#" onclick="history.back(); return false;" class="btn btn-secondary">Back</a>
+                  <!-- Edit button -->
+                  <a href="/lego/editSet/<%= legoSet.set_num %>" class="btn btn-success">Edit</a>
+              </div>
               
             </div>
           </div>
     </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+          fetch('https://quotable.io/random')
+              .then(response => response.json())
+              .then(data => {
+                  const quoteContainer = document.getElementById('quote');
+                  quoteContainer.innerHTML = `<p style="font-size: smaller;">"${data.content}"<br><span style="font-style: normal; font-size: smaller;">- </span><span style="font-style: italic;">${data.author}</span></p>`;})
+              .catch(error => {
+                  console.error('Error fetching the quote:', error);
+              });
+      });
+  </script>
 
     
 </body>
