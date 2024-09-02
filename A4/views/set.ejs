@@ -32,9 +32,11 @@
                   <!-- Link to go back -->
                   <a href="#" onclick="history.back(); return false;" class="btn btn-secondary">Back</a>
                   <!-- Edit button -->
-                  <a href="/lego/editSet/<%= legoSet.set_num %>" class="btn btn-success">Edit</a>
-              </div>
-              
+                  <% if (session.user) { %>
+                    <!-- Edit button (only visible if user is logged in) -->
+                    <a href="/lego/editSet/<%= legoSet.set_num %>" class="btn btn-success">Edit</a>
+                    <% } %>
+                  </div>
             </div>
           </div>
     </div>

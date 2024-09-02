@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html class="bg-gray-200" lang="en" data-theme="pastel">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <title>Login</title>
+</head>
+
+<body>
+    <%- include('partials/navbar', {page: '/login'}) %>
+
+    <div class="container mx-auto py-10">
+        <div class="max-w-md mx-auto bg-white rounded-lg shadow-lg p-6">
+            <h1 class="text-2xl font-bold mb-4">Login</h1>
+            <!-- Login Form -->
+            <form action="/login" method="POST">
+                <div class="mb-4">
+                    <label for="userName" class="block mb-2">User Name:</label>
+                    <input type="text" name="userName" id="userName" placeholder="User Name" required class="input input-bordered w-full">
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block mb-2">Password:</label>
+                    <input type="password" name="password" id="password" placeholder="Password" required class="input input-bordered w-full">
+                </div>
+                <div class="mb-4">
+                    <button type="submit" class="btn btn-primary w-full">Login</button>
+                </div>
+            </form>
+
+            <!-- Error Output -->
+            <% if (errorMessage) { %>
+            <div class="alert alert-error mt-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span><%= errorMessage %></span>
+            </div>
+            <% } %>
+        </div>
+    </div>
+
+    <!-- Include necessary JavaScript libraries (if any) -->
+</body>
+
+</html>

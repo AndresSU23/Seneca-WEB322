@@ -1,23 +1,45 @@
 <div class="border-b border-l border-r m-0 border-gray-300 rounded-lg shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
-    <div class="navbar bg-base-100 rounded-lg">
-      <div class="flex-1 gap-5">
-        <a class="btn btn-ghost text-xl <%= (page == "/about") ? 'active' : '' %>" href="/">Lego Collection</a>
+  <div class="navbar bg-base-100 rounded-lg">
+    <div class="flex-1 gap-5">
+      <a class="btn btn-ghost text-xl <%= (page == "/about") ? 'active' : '' %>" href="/">Lego Collection</a>
     </div>
-      <div class="flex-none">
-        <div class="dropdown">
-          <details closed>
-            <summary class="list-none">
-              <div tabindex="0" role="button" class="btn btn-ghost btn-circle ">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path></svg>
-              </div>
-            </summary>
-            <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 right-0">
-              <li><a class="<%= (page == "/about") ? 'active' : '' %>" href="/about">About</a></li>
-              <li><a class="<%= (page == "/lego/addSet") ? 'active' : '' %>" href="/lego/addSet">Add to Collection</a></li>
-              <li><a class="<%= (page == "/sets") ? 'active' : '' %>" href="/lego/sets">Collection</a></li>
-            </ul>
-          </details>
-        </div>
+    <div class="flex-none">
+      <div class="dropdown">
+        <details closed>
+          <summary class="list-none">
+            <div tabindex="0" role="button" class="btn btn-ghost btn-circle ">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 24 24" class="inline-block w-5 h-5 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path></svg>
+            </div>
+          </summary>
+          <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 right-0">
+            <li><a class="<%= (page == "/about") ? 'active' : '' %>" href="/about">About</a></li>
+            <li><a class="<%= (page == "/sets") ? 'active' : '' %>" href="/lego/sets">Collection</a></li>
+            <!-- Conditional rendering based on session status -->
+            <% if (session.user) { %>
+            <li>
+              <details>
+                <summary>Account: <%= session.user.userName %></summary>
+                <ul class="p-2 right-0">
+                  <li><a class="<%= (page == "/lego/addSet") ? 'active' : '' %>" href="/lego/addSet">Add to Collection</a></li>
+                  <li><a class="<%= (page == "/userHistory") ? 'active' : '' %>" href="/userHistory">User History</a></li>
+                  <li><a href="/logout">Log Out</a></li>
+                </ul>
+              </details>
+            </li>
+            <% } else { %>
+            <li>
+              <details>
+                <summary>Account</summary>
+                <ul class="p-2 right-0">
+                  <li><a class="<%= (page == "/login") ? 'active' : '' %>" href="/login">Login</a></li>
+                  <li><a class="<%= (page == "/register") ? 'active' : '' %>" href="/register">Register</a></li>
+                </ul>
+              </details>
+            </li>
+            <% } %>
+          </ul>
+        </details>
       </div>
     </div>
   </div>
+</div>
